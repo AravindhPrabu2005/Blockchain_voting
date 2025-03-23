@@ -39,6 +39,14 @@ export default function UserVotingPage() {
     }
   }
 
+  // State to manage chatbot visibility
+  const [isChatbotVisible, setIsChatbotVisible] = useState(false)
+
+  // Toggle chatbot visibility
+  const toggleChatbot = () => {
+    setIsChatbotVisible(!isChatbotVisible)
+  }
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
@@ -71,6 +79,25 @@ export default function UserVotingPage() {
           ))}
         </div>
       </div>
+
+      {/* Chatbot Icon */}
+      <div 
+        onClick={toggleChatbot} 
+        className="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full cursor-pointer shadow-lg hover:bg-blue-700"
+      >
+        <span role="img" aria-label="chatbot">💬</span>
+      </div>
+
+      {/* Chatbot iframe */}
+      {isChatbotVisible && (
+        <iframe
+          src="https://www.chatbase.co/chatbot-iframe/jeZ0jfFWmH6GEJSKRIOil"
+          width="350"
+          height="500"
+          style={{ position: 'fixed', bottom: '80px', right: '20px', border: 'none', borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}
+          title="Chatbot"
+        />
+      )}
     </div>
   )
 }
