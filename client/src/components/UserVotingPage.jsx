@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Sidebar from './Sidebar'
+import UserSidebar from './UserSidebar'
 
 export default function UserVotingPage() {
   const [polls, setPolls] = useState([])
@@ -49,7 +49,7 @@ export default function UserVotingPage() {
 
   return (
     <div className="flex min-h-screen bg-gray-100">
-      <Sidebar />
+      <UserSidebar />
       <div className="flex-1 p-10">
         <div className="space-y-10">
           {polls.map((poll) => (

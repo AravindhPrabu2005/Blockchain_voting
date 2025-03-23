@@ -6,6 +6,7 @@ import Indexpage from './components/Indexpage';
 import Adminpage from './components/Adminpage';
 import AdminSignupPage from './components/AdminSignup';
 import UserVotingPage from './components/UserVotingPage';
+import Finalpoll from './components/Finalpolls';
 
 const App = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/" element={isLoggedIn && !isAdmin ? <Indexpage /> : <Navigate to="/login" />} />
                 <Route path="/admin" element={isLoggedIn && isAdmin ? <Adminpage /> : <Navigate to="/login" />} />
                 <Route path="/user/vote" element={<UserVotingPage />} />
+                <Route path="/admin/results" element={<Finalpoll />} />
             </Routes>
         </Router>
     );

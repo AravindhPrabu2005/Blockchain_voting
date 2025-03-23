@@ -26,7 +26,7 @@ export default function LoginPage() {
         if (response.data.user.isAdmin) {
           window.location.href = '/admin';
         } else {
-          window.location.href = '/';
+          window.location.href = '/user/vote';
         }
       } else {
         alert('Login failed. Please try again.');
